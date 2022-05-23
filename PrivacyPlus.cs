@@ -11,7 +11,7 @@ namespace PrivacyPlus
         public override string Name => "PrivacyPlus";
         public override string Author => "Psychpsyo";
         public override string Version => "1.0.0";
-        //public override string Link => "https://github.com/Psychpsyo/PrivacyPlus";
+        public override string Link => "https://github.com/Psychpsyo/PrivacyPlus";
 
         // config keys
         [AutoRegisterConfigKey]
