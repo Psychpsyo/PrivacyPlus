@@ -10,7 +10,7 @@ namespace PrivacyPlus
     public class PrivacyPlus : NeosMod {
         public override string Name => "PrivacyPlus";
         public override string Author => "Psychpsyo";
-        public override string Version => "1.0.0";
+        public override string Version => "1.0.1";
         public override string Link => "https://github.com/Psychpsyo/PrivacyPlus";
 
         // config keys
@@ -41,10 +41,8 @@ namespace PrivacyPlus
         {
             public static Dictionary<string, string> Postfix(Dictionary<string, string> originalExIds)
             {
-                // return a new dict that only had our fake UniqueDeviceIdentifier hash
-                Dictionary<string, string> dict = new Dictionary<string, string>();
-                dict.Add("UniqueDeviceIdentifier", config.GetValue(UniqueDeviceIdentifierHash));
-                return new Dictionary<string, string>();
+                // return a new dict that only has our fake UniqueDeviceIdentifier hash
+                return new Dictionary<string, string>() { { "UniqueDeviceIdentifier", config.GetValue(UniqueDeviceIdentifierHash) } };
             }
         }
     }
