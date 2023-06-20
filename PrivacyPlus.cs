@@ -39,10 +39,11 @@ namespace PrivacyPlus
         [HarmonyPatch(typeof(FrooxEngine.PlatformInterface), "GetExtraUserIds")]
         class PrivacyPlusExIds
         {
-            public static Dictionary<string, string> Postfix(Dictionary<string, string> originalExIds)
+            public static bool Prefix(ref Dictionary<string, string> __result)
             {
-                // return a new dict that only has our fake UniqueDeviceIdentifier hash
-                return new Dictionary<string, string>() { { "UniqueDeviceIdentifier", config.GetValue(UniqueDeviceIdentifierHash) } };
+                // return a new dict that only has our fake UniqueDeviceIdentifier has
+                __result = new Dictionary<string, string>() { { "UniqueDeviceIdentifier", config.GetValue(UniqueDeviceIdentifierHash) } };
+                return false;
             }
         }
     }
